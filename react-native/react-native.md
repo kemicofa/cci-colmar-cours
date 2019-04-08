@@ -1,3 +1,5 @@
+<!-- $theme: default -->
+
 <!-- page_number: true -->
 
 
@@ -168,7 +170,7 @@ componentWillMount()
 
 ### DEPRECATED
 
-![gif not loaded](https://media.giphy.com/media/3oKIPb7sHFQ9Irn54Y/giphy.gif)
+![gif not loaded](https://media.giphy.com/media/l0HlHAORavTWG7864/giphy.gif)
 
 Generally used to prepare for the first render
 
@@ -193,19 +195,25 @@ componentDidMount()
 * Can potentially make a new render call if state changed
 * Recommended place to make external API calls
 
+![gif not loaded](https://media.giphy.com/media/l2QDSfKZKsUO706vS/giphy.gif)
+
 ---
 
 Life Cycle (Unmount)
 ===
+
+![gif not loaded](https://media.giphy.com/media/VDeMMDsxmeWbu/giphy.gif)
+
+Unmount your smart components *safely*.
+
 ```
 componentWillUnmount(){
   //save anything that needs to be saved
   
   //stop anything that should be stopped
-  //i.e.: setInterval ids
+  //i.e.: remove setInterval ids
 }
 ````
-
 
 ---
 
@@ -228,6 +236,8 @@ const ShowMessage = props => {
     )
 }
 ```
+
+*if this was a class then use `this.props`*
 
 ---
 
@@ -381,14 +391,133 @@ Find out more from [css-tricks](https://css-tricks.com/snippets/css/a-guide-to-f
 
 ---
 
-Handling Text Inputs
+[Handling Text Inputs](https://facebook.github.io/react-native/docs/handling-text-input)
 ===
+
+Pass a [callback](https://developer.mozilla.org/fr/docs/Glossaire/Fonction_de_rappel) !
 
 ```javascript
 import { TextInput } from 'react-native';
 
+/** in some component's render method */
+<TextInput
+  onChangeText={(text) => this.setState({text})}
+/>
 
 ```
+
+---
+
+[Handling Touches](https://facebook.github.io/react-native/docs/handling-touches)
+===
+
+![gif did not load](https://media.giphy.com/media/WgO4RyUXGkAobxWDSP/giphy.gif)
+
+---
+
+[Button](https://facebook.github.io/react-native/docs/handling-touches#displaying-a-basic-button)
+===
+
+Basic button that accepts a callback as argument for `onPress`
+
+```javascript
+<Button
+  onPress={() => {
+    Alert.alert('You tapped the button!');
+  }}
+  title="Press Me"
+/>
+```
+
+---
+
+[Touchables](https://facebook.github.io/react-native/docs/handling-touches#touchables)
+===
+
+* Useful if `Button` doesn't look right
+* Captures tapping gestures
+* No generic style provided
+
+1. [TouchableHighlights](https://facebook.github.io/react-native/docs/touchablehighlight)
+2. [TouchableNativeFeedback](https://facebook.github.io/react-native/docs/touchablenativefeedback)
+3. [TouchableOpacity]( https://facebook.github.io/react-native/docs/touchableopacity)
+4. [TouchableWithoutFeedback](https://facebook.github.io/react-native/docs/touchablewithoutfeedback)
+
+---
+
+[ScrollView](https://facebook.github.io/react-native/docs/using-a-scrollview)
+===
+
+* Scroll Horizontally and Vertically
+* Easy to use
+* Renders all items at once
+* Not very performant for many items
+
+---
+
+[ListViews](https://facebook.github.io/react-native/docs/using-a-listview)
+===
+
+**FlatList** vs **SectionList**
+
+![gif not loaded](https://media.giphy.com/media/TPl5N4Ci49ZQY/giphy.gif)
+
+---
+
+[FlatList](https://facebook.github.io/react-native/docs/flatlist)
+===
+
+* Lazy loads data (not all data loaded if not within screen)
+* Performant for very long list of data
+* Requires two props: `data` and `renderItem`
+* Optional horizontal mode
+* Configurable viewability callbacks.
+
+* Header, Footer, Seperator support
+* Pull to refresh
+* Scroll loading
+* ScrollToIndex support.
+
+
+---
+
+[SectionList](https://media.giphy.com/media/TPl5N4Ci49ZQY/giphy.gif)
+===
+
+Similar to FlatList but useful for breaking data into logical sections
+
+* List Header and Footer support
+* Section and Item seperator support
+* Pull to refresh
+* Scroll loading
+
+---
+
+[Networking](https://facebook.github.io/react-native/docs/network)
+===
+
+Use [fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API), a promise based API that provides an interface for fetching resources
+
+```javascript
+fetch("some url", { /** options here */ })
+.then(res=>{
+
+   if(!res.ok) throw new Error("Failed!");
+   //res is the response
+   //get the data (json method returns a promise)
+   return res.json();
+})
+.then(data=>console.log(data))
+.catch(err=>console.log(err));
+
+```
+
+---
+
+Networking: iOS blocks HTTP by default !
+===
+
+Add an [app transport security exception](https://facebook.github.io/react-native/docs/integration-with-existing-apps#test-your-integration) in your Info.plist
 
 ---
 
