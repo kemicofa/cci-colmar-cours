@@ -308,3 +308,36 @@ class DetailsScreen extends React.Component {
              }
   />
 ```
+
+---
+
+[Adjusting Header Styles](https://reactnavigation.org/docs/en/headers.html#adjusting-header-styles)
+===
+
+Key Properties:
+
+* `headerStyle` : style object applied to `View` wrapper
+* `headerTintColor` : back button and title color
+* `headerTitleStyle` : Customize `Text`element for the title
+
+---
+
+Header Styles Example
+===
+
+```javascript
+class HomeScreen extends React.Component {
+  static navigationOptions = {
+    title: 'Home',
+    headerStyle: {
+      backgroundColor: '#f4511e',
+    },
+    headerTintColor: '#fff',
+    headerTitleStyle: {
+      fontWeight: 'bold',
+    },
+  };
+
+  /* render function, etc */
+}
+```
