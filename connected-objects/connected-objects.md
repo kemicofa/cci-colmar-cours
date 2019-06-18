@@ -128,7 +128,6 @@ Object Can Receive And Send Data
 
 * Objects can also have a both emitter and receiver properties
 
-![50%](https://images-na.ssl-images-amazon.com/images/I/61qPJbu0POL._SL1000_.jpg)
 
 ---
 
@@ -323,6 +322,24 @@ SERVICE vs CHARACTERISTIC
 * determines how to exchange all profile and user data
 * uses Attribute Protocol (ATT) as its transport protocol to exchange data between devices
 * data is organized **hierarchically** in sections called **services** that group related pieces of user data called **characteristics**
+
+---
+
+How to communicate with a device?
+===
+
+*When the pairing/bonding process has been completed*
+
+* Reading
+* Writing
+* Notifications
+
+Information is prepared as a **byte array** before being sent
+* 1 byte = 1 octet = 8 bits
+* Each hexadecimal value digit represents 4 bits (half a byte)
+* `0x` indicates to the system that the following value is hexadecimal
+* `0x00` = `0000 0000` (8 bits) = 1 byte
+* `0xFF` = `1111 1111` (8 bits) = 1 byte
 
 ---
 
