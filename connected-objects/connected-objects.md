@@ -170,7 +170,7 @@ Cons:
 * Expensive in power
 * Complicated for battery powered devices
 * Complicated for devices far from the grid
-
+ 
 ---
 
 Low-Power Solutions
@@ -234,7 +234,7 @@ Bluetooth, how does it work?
 * [master/slave architecture](https://en.wikipedia.org/wiki/Master/slave_(technology))
 * master can communicate with up to 8 slaves in a [piconet](https://en.wikipedia.org/wiki/Piconet)
 * All slave devices on time based interval of the master
-* Data is transmitted at 312.5 [Âµs](https://en.wikipedia.org/wiki/%CE%9Cs) intervals
+* Data is transmitted at 312.5 [Ã‚Âµs](https://en.wikipedia.org/wiki/%CE%9Cs) intervals
 
 ---
 
